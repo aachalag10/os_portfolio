@@ -5,7 +5,10 @@ import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
 import { Tooltip } from "react-tooltip";
 import gsap from "gsap"
+import usewindowstore from "../store/window"
+
 const Dock = () => {
+  const {openWindow,closeWindow,windows}=usewindowstore();
   const dockRef = useRef(null);
 
   useGSAP(() => {
@@ -21,7 +24,7 @@ const Dock = () => {
         const center = iconLeft - left + width / 2;
         const distance = Math.abs(mouseX - center);
 
-        const intensity = Math.exp(-(distance ** 5) / 20000);
+        const intensity = Math.exp(-(distance ** 2.5) / 20000);
 
         gsap.to(icon, {
           scale: 1 + 0.25 + intensity,
@@ -57,7 +60,18 @@ const Dock = () => {
 
  
 
-  const toggleApp = (app) => {};
+  const toggleApp = (app) => {
+    if(!app.canOpen) return;
+
+    const window=windows[app.id];
+
+    if(window.isOpen){
+      closeWindow(app.id);
+    }else{
+      openWindow(app.id);
+    }
+    console.log(windows);
+  };
   return (
     <section id="dock">
       <div ref={dockRef} className="dock-container">
