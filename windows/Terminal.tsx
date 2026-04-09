@@ -3,18 +3,19 @@
 import React from "react";
 import WindowWrapper from "../hoc/WindowWrapper";
 import { techStack } from "@/constants";
-import { Check } from "lucide";
+import { Check } from "lucide-react";
+import WindowControls from "@/components/WindowControls";
 const Terminal = () => {
   return (
     <>
       <div id="window-header">
-        <p>Window controls</p>
+        <WindowControls target="terminal"/>
         <h2>Tech Stack</h2>
       </div>
 
       <div className="techstack">
         <p>
-          <span className="font-bold">@adrian%</span>
+          <span className="font-bold">@aachal%</span>
         </p>
 
         <div className="label">

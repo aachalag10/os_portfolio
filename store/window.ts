@@ -21,7 +21,7 @@ const usewindowstore = create(
         const win = state.windows[windowKey];
         win.isOpen = false;
         win.zIndex = state.nextZIndex;
-        win.data = data ?? win.data;
+        win.data = null;
       }),
     focusWindow: (windowKey) =>
       set((state) => {
