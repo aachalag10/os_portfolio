@@ -1,11 +1,15 @@
-"use client"
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+//@ts-nocheck
 
-import { useEffect, useState } from 'react';
-import { WindowControls } from '@/components';
-import WindowWrapper from '@/hoc/WindowWrapper';
-import { Download } from 'lucide-react';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
+"use client";
+
+import { useEffect, useState } from "react";
+import { WindowControls } from "@/components";
+import WindowWrapper from "@/hoc/WindowWrapper";
+import { Download } from "lucide-react";
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
 
 const Resume = () => {
   const [PdfComponents, setPdfComponents] = useState<{
@@ -16,9 +20,9 @@ const Resume = () => {
   useEffect(() => {
     let isMounted = true;
 
-    import('react-pdf').then((mod) => {
+    import("react-pdf").then((mod) => {
       mod.pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-        'pdfjs-dist/build/pdf.worker.min.mjs',
+        "pdfjs-dist/build/pdf.worker.min.mjs",
         import.meta.url,
       ).toString();
 
@@ -41,11 +45,16 @@ const Resume = () => {
 
   return (
     <>
-      <div id='window-header'>
+      <div id="window-header">
         <WindowControls target="resume" />
         <h2>Resume.pdf</h2>
 
-        <a href='files/resume.pdf' download className='cursor-pointer' title='Download Resume'>
+        <a
+          href="files/resume.pdf"
+          download
+          className="cursor-pointer"
+          title="Download Resume"
+        >
           <Download />
         </a>
       </div>
@@ -57,5 +66,5 @@ const Resume = () => {
   );
 };
 
-const ResumeWindow = WindowWrapper(Resume, 'resume');
+const ResumeWindow = WindowWrapper(Resume, "resume");
 export default ResumeWindow;

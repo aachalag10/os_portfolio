@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
+
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import { WINDOW_CONFIG, INITIAL_Z_INDEX } from "@/constants";

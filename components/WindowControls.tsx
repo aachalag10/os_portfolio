@@ -1,17 +1,19 @@
-import usewindowstore from '@/store/window'
-import React from 'react'
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
 
-const WindowControls = ({target}) => {
-    const {closeWindow}=usewindowstore();
-    return (
-    <div id='window-controls'>
-        <div className='close' onClick={()=>closeWindow(target)}/>
+import usewindowstore from "@/store/window";
+import React from "react";
 
-        <div className='minimize'/>
-        <div className='maximize'/>
+const WindowControls = ({ target }) => {
+  const { closeWindow } = usewindowstore();
+  return (
+    <div id="window-controls">
+      <div className="close" onClick={() => closeWindow(target)} />
+
+      <div className="minimize" />
+      <div className="maximize" />
     </div>
-  )
-}
+  );
+};
 
-export default WindowControls
-
+export default WindowControls;

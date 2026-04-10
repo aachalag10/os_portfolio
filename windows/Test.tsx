@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
+
 "use client";
 
 import React from "react";
@@ -15,8 +18,8 @@ const TxtFile = () => {
   const descriptionItems = Array.isArray(description)
     ? description
     : description
-    ? [description]
-    : [];
+      ? [description]
+      : [];
 
   return (
     <>

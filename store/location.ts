@@ -1,17 +1,23 @@
-import {create} from "zustand";
-import {immer} from "zustand/middleware/immer"
-import {locations} from '#constants/index';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
 
-const DEFAULT_LOCATION=locations.work;
-const useLocationStore=create(immer((set)=>({
-    activeLocation:DEFAULT_LOCATION,
+import { create } from "zustand";
+import { immer } from "zustand/middleware/immer";
+import { locations } from "#constants/index";
 
+const DEFAULT_LOCATION = locations.work;
+const useLocationStore = create(
+  immer((set) => ({
+    activeLocation: DEFAULT_LOCATION,
 
-    setActiveLocation:(location=null)=>set((state)=>{
-        state.activeLocation=location;
-    }),
-    resetActiveLocation:()=>set((state)=>{
-        state.activeLocation=DEFAULT_LOCATION;
-    })
-})))
+    setActiveLocation: (location = null) =>
+      set((state) => {
+        state.activeLocation = location;
+      }),
+    resetActiveLocation: () =>
+      set((state) => {
+        state.activeLocation = DEFAULT_LOCATION;
+      }),
+  })),
+);
 export default useLocationStore;

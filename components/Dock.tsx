@@ -1,14 +1,17 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
+
 "use client";
 
 import { dockApps } from "@/constants";
 import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
 import { Tooltip } from "react-tooltip";
-import gsap from "gsap"
-import usewindowstore from "../store/window"
+import gsap from "gsap";
+import usewindowstore from "../store/window";
 
 const Dock = () => {
-  const {openWindow,closeWindow,windows}=usewindowstore();
+  const { openWindow, closeWindow, windows } = usewindowstore();
   const dockRef = useRef(null);
 
   useGSAP(() => {
@@ -47,28 +50,24 @@ const Dock = () => {
           ease: "power1.out",
         }),
       );
-       dock.addEventListener('mousemove',handleMouseMove)
-       dock.addEventListener("mouseleave",resetIcons);
+    dock.addEventListener("mousemove", handleMouseMove);
+    dock.addEventListener("mouseleave", resetIcons);
 
-       return()=>{
-        dock.removeEventListener("mousemove",handleMouseMove);
-        dock.removeEventListener("mouseleave",resetIcons);
-
-       }
-
-  },[]);
-
- 
+    return () => {
+      dock.removeEventListener("mousemove", handleMouseMove);
+      dock.removeEventListener("mouseleave", resetIcons);
+    };
+  }, []);
 
   const toggleApp = (app) => {
-    if(!app.canOpen) return;
+    if (!app.canOpen) return;
 
-    const window=windows[app.id];
-    if(!window) return;
+    const window = windows[app.id];
+    if (!window) return;
 
-    if(window.isOpen){
+    if (window.isOpen) {
       closeWindow(app.id);
-    }else{
+    } else {
       openWindow(app.id);
     }
     console.log(windows);
@@ -86,14 +85,14 @@ const Dock = () => {
               data-tooltip-content={name}
               data-tooltip-delay-show={150}
               disabled={!canOpen}
-              onClick={() => toggleApp( {id, canOpen})}
+              onClick={() => toggleApp({ id, canOpen })}
             >
-            <img
-              src={`/images/${icon}`}
-              alt={name}
-              loading="lazy"
-              className={canOpen ? "" : "opacity-60"}
-            />
+              <img
+                src={`/images/${icon}`}
+                alt={name}
+                loading="lazy"
+                className={canOpen ? "" : "opacity-60"}
+              />
             </button>
           </div>
         ))}

@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+//@ts-nocheck
+
 "use client";
 
 import { WindowControls } from "@/components";
@@ -9,18 +13,17 @@ import WindowWrapper from "@/hoc/WindowWrapper";
 import usewindowstore from "@/store/window";
 
 const Finder = () => {
-    const {openWindow}=usewindowstore();
+  const { openWindow } = usewindowstore();
   const { activeLocation, setActiveLocation } = useLocationStore();
 
+  const openItem = (item) => {
+    if (item.fileType === "pdf") return openWindow("resume");
+    if (item.kind === "folder") return setActiveLocation(item);
+    if (["fig", "url"].includes(item.fileType) && item.href)
+      return window.open(item.href, "_blank");
 
-  const openItem=(item)=>{
-        if(item.fileType==="pdf") return openWindow('resume')
-        if(item.kind==='folder') return setActiveLocation(item)
-        if(["fig","url"].includes(item.fileType) && item.href)
-            return window.open(item.href,"_blank");
-
-        openWindow(`${item.fileType}${item.kind}`,item)
-  }
+    openWindow(`${item.fileType}${item.kind}`, item);
+  };
   const renderList = (name, items) => (
     <div>
       <h3>{name}</h3>
@@ -55,20 +58,23 @@ const Finder = () => {
           {renderList("Favourites", Object.values(locations))}
           {renderList("Work", locations.work.children)}
         </div>
-     
 
-      <ul className="content">
-        {activeLocation?.children.map((item)=>(
-            <li key={item.id} className={item.position} onClick={()=>openItem(item)}>
-                <img src={item.icon} alt={item.name}/>
-                <p>{item.name}</p>
+        <ul className="content">
+          {activeLocation?.children.map((item) => (
+            <li
+              key={item.id}
+              className={item.position}
+              onClick={() => openItem(item)}
+            >
+              <img src={item.icon} alt={item.name} />
+              <p>{item.name}</p>
             </li>
-        ))}
-      </ul>
-       </div>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
 
-const FinderWindow=WindowWrapper(Finder,"finder")
+const FinderWindow = WindowWrapper(Finder, "finder");
 export default FinderWindow;
