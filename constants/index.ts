@@ -104,17 +104,14 @@ const techStack = [
     category: "Frontend",
     items: ["React.js", "Next.js", "TypeScript"],
   },
-  {
-    category: "Mobile",
-    items: ["React Native", "Expo"],
-  },
+
   {
     category: "Styling",
     items: ["Tailwind CSS", "Sass", "CSS"],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Hono"],
+    items: ["Python", "Django", "NextJS", "Node.js"],
   },
   {
     category: "Database",
@@ -132,28 +129,28 @@ const socials = [
     text: "Github",
     icon: "/icons/github.svg",
     bg: "#f4656b",
-    link: "https://github.com/JavaScript-Mastery-Pro",
+    link: "https://github.com/aachalag10",
   },
-  {
-    id: 2,
-    text: "Platform",
-    icon: "/icons/atom.svg",
-    bg: "#4bcb63",
-    link: "https://jsmastery.com/",
-  },
-  {
-    id: 3,
-    text: "Twitter/X",
-    icon: "/icons/twitter.svg",
-    bg: "#ff866b",
-    link: "https://x.com/jsmasterypro",
-  },
+  // {
+  //   id: 2,
+  //   text: "Platform",
+  //   icon: "/icons/atom.svg",
+  //   bg: "#4bcb63",
+  //   link: "https://jsmastery.com/",
+  // },
+  // {
+  //   id: 3,
+  //   text: "Twitter/X",
+  //   icon: "/icons/twitter.svg",
+  //   bg: "#ff866b",
+  //   link: "https://x.com/jsmasterypro",
+  // },
   {
     id: 4,
     text: "LinkedIn",
     icon: "/icons/linkedin.svg",
     bg: "#05b6f6",
-    link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+    link: "https://www.linkedin.com/in/aachalagarwal/",
   },
 ];
 
@@ -225,7 +222,7 @@ const WORK_LOCATION = {
     // ▶ Project 1
     {
       id: 5,
-      name: "Nike Ecommerce Website Application",
+      name: "NodeZep",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-5", // icon position inside Finder
@@ -233,27 +230,27 @@ const WORK_LOCATION = {
       children: [
         {
           id: 1,
-          name: "Nike Project.txt",
+          name: "NodeZep Project.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
-            "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-            "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
-            "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
+            "The NodeZep application is a no-code automation platform inspired by Zapier, designed to help users create powerful workflows by connecting triggers and actions across multiple services.",
+            "It enables users to automate repetitive tasks effortlessly with an intuitive interface, real-time execution, and scalable architecture.",
+            "Think of it as your personal automation hub—where you can design workflows, integrate apps, and streamline processes without writing code.",
+            "It's built using Next.js, React, Prisma, and modern web technologies, ensuring high performance, seamless user experience, and a clean, responsive design.",
           ],
         },
-        {
-          id: 2,
-          name: "nike.com",
-          icon: "/images/safari.png",
-          kind: "file",
-          fileType: "url",
-          href: "https://youtu.be/fZdTYswuZjU?si=Awjl-pIst9e09_UU",
-          position: "top-10 right-20",
-        },
+        // {
+        //   id: 2,
+        //   name: "nike.com",
+        //   icon: "/images/safari.png",
+        //   kind: "file",
+        //   fileType: "url",
+        //   href: "https://youtu.be/fZdTYswuZjU?si=Awjl-pIst9e09_UU",
+        //   position: "top-10 right-20",
+        // },
         {
           id: 4,
           name: "nike.png",
